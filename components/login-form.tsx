@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -21,6 +21,13 @@ export function LoginForm({ onLogin }: LoginFormProps) {
     username: "admin",
     password: "admin123",
   }
+
+    useEffect(() => {
+    const savedUser = localStorage.getItem("username")
+    if (savedUser) {
+      onLogin(savedUser)
+    }
+  }, [onLogin])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -99,11 +106,7 @@ export function LoginForm({ onLogin }: LoginFormProps) {
               {isLoading ? "กำลังเข้าสู่ระบบ..." : "เข้าสู่ระบบ"}
             </Button>
 
-            <div className="text-xs text-muted-foreground text-center mt-4 p-2 bg-muted/50 rounded">
-              <p>สำหรับทดสอบ:</p>
-              <p>ชื่อผู้ใช้: admin</p>
-              <p>รหัสผ่าน: admin123</p>
-            </div>
+           
           </form>
         </CardContent>
       </Card>
