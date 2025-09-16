@@ -65,7 +65,7 @@
   }
 
   body {
-  font-family: 'Prompt', Arial, Helvetica, sans-serif;
+  font-family: "Prompt", sans-serif;
   background-color: var(--background);
   color: var(--foreground);
   }

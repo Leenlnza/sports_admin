@@ -226,7 +226,7 @@ export function AdminDashboard({ username, onLogout }: AdminDashboardProps) {
                       <Plus className="h-4 w-4" /> เพิ่มอุปกรณ์
                     </Button>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="bg-white">
                     <DialogHeader>
                       <DialogTitle>เพิ่มอุปกรณ์ใหม่</DialogTitle>
                       <DialogDescription>กรอกข้อมูลอุปกรณ์ที่ต้องการเพิ่ม</DialogDescription>
