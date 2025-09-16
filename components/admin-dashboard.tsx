@@ -232,9 +232,13 @@ export function AdminDashboard({ username, onLogout }: AdminDashboardProps) {
                       <DialogDescription>กรอกข้อมูลอุปกรณ์ที่ต้องการเพิ่ม</DialogDescription>
                     </DialogHeader>
                     <div className="space-y-2 mt-2">
+                      <label>ชื่ออุปกรณ์</label>
                       <Input placeholder="ชื่ออุปกรณ์" value={newName} onChange={e => setNewName(e.target.value)} />
+                      <label>หมวดหมู่</label>
                       <Input placeholder="หมวดหมู่" value={newCategory} onChange={e => setNewCategory(e.target.value)} />
+                      <label>คำอธิบาย</label>
                       <Input placeholder="คำอธิบาย" value={newDescription} onChange={e => setNewDescription(e.target.value)} />
+                      <label>จำนวนทั้งหมด</label>
                       <Input type="number" placeholder="จำนวนทั้งหมด" value={newTotal} onChange={e => setNewTotal(Number(e.target.value))} />
                     </div>
                     <DialogFooter>

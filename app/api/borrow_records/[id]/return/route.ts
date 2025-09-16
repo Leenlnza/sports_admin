@@ -9,7 +9,7 @@ export async function PUT(
 ) {
   try {
     const client = await clientPromise
-    const db = client.db("lcc_sports_new") // ใช้ฐานจริง
+    const db = client.db("lcc_sports_new")
     const recordId = params.id
 
     const record = await db.collection("borrow_records").findOne({ _id: new ObjectId(recordId) })
@@ -21,11 +21,13 @@ export async function PUT(
       { $set: { status: "returned", returnDate: new Date() } }
     )
 
-    // เพิ่ม available ของอุปกรณ์
-    await db.collection("equipment").updateOne(
-      { name: record.equipmentName },
-      { $inc: { available: 1 } }
-    )
+    // เพิ่ม available ของอุปกรณ์โดยใช้ equipmentId แทน name
+    if (record.equipmentId) {
+      await db.collection("equipment").updateOne(
+        { _id: new ObjectId(record.equipmentId) },
+        { $inc: { available: 1 } }
+      )
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {
