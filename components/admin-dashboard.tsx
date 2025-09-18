@@ -340,7 +340,7 @@ export function AdminDashboard({ username, onLogout }: AdminDashboardProps) {
                     <div>
                       <h3 className="font-medium">{m.name}</h3>
                       <p className="text-xs text-muted-foreground">อีเมล: {m.email}</p>
-                      <p className="text-xs text-muted-foreground">โทรศัพท์: {m.phone}</p>
+                      
                     </div>
                   </div>
                 ))}
